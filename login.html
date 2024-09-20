@@ -5,35 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #f2f2f2;
+            background-image: url('https://www.uottawa.ca/sites/default/files/styles/large/public/2021-09/2021-09-21-campus-arts-building.jpg');
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
         .container {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: black;
+            z-index: 2;
+            animation: fadeIn 1s ease-in-out;
         }
         .link a {
             color: #007bff;
         }
+        .header {
+            position: absolute;
+            top: 20px;
+            text-align: center;
+            width: 100%;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 2;
+        }
+        .required::after {
+            content: ' *';
+            color: red;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
+    <div class="header">University of Ottawa</div>
     <div class="container">
         <h2 class="text-center mb-4">Login</h2>
         <form action="/login" method="post">
             <div class="form-group">
-                <label for="username">Username</label>
+                <label for="username" class="required">Username</label>
                 <input type="text" class="form-control" id="username" name="username" required>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password" class="required">Password</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Login</button>
