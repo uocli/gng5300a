@@ -11,12 +11,4 @@
 # register.html
 
 # Activity 4
-
-
-# Activity 5
-
-
-# Activity 6
-
-
-# Activity 7
+# Django Project
